@@ -6,23 +6,19 @@
 # found at http://inspec.io/docs/reference/resources/
 
 # This is an example test, replace it with your own test.
-describe group('nginx') do
+
+# Check to see if file exist
+describe file('/var/www/html/index.html') do
   it { should exist }
 end
 
-describe user('nginx') do
-  it { should exist }
-end
-
-describe file('/var/www/index.html') do
-  it { should exist }
-end
-
+# Check if port is listening
 describe port(80), :skip do
   it { should_not be_listening }
 end
 
-describe http('http://192.168.33.33:8080') do
+# Test page
+describe http('http://192.168.33.33:80') do
   its('status') { should eq 200 }
-  its('body') { should include 'Hello' }
+  its('body') { should include 'Hello World' }
 end

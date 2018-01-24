@@ -6,15 +6,6 @@
 
 apt_update
 
-# group 'nginx' do
-#   action :create
-# end
-#
-# user 'nginx' do
-#   group 'nginx'
-#   action :create
-# end
-
 package 'nginx' do
   action :install
 end

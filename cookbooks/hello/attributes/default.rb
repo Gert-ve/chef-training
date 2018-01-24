@@ -1,1 +1,1 @@
-node.default['name']=''
+default['hello']['name']=''
